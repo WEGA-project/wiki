@@ -1,0 +1,33 @@
+site_name: WEGA-project
+theme:
+  name: material
+  favicon: "img/favicon.ico"
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+      primary: green
+      accent: blue
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: green
+      accent: teal
+
+  font:
+    text: Ubuntu
+  icon:
+    logo: material/cloud
+nav:
+  - Описание: "index.md"
+  - WEGA Server:
+      - Как настроить: "server/install.md"
+      - Установка через скрипт: "server/auto_install.md"
+      - Ручная установка: "server/manual_install.md"
+  - WEGABOX:
+      - Описание: "box/box.md"
