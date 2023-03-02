@@ -1,7 +1,9 @@
 site_name: WEGA-project
 theme:
+  # features:
+  #   - header.autohide
   name: material
-  favicon: "img/favicon.ico"
+  favicon: "assets/favicon.ico"
   palette:
     # Palette toggle for light mode
     - scheme: default
@@ -18,11 +20,32 @@ theme:
         name: Switch to light mode
       primary: green
       accent: teal
-
   font:
     text: Ubuntu
   icon:
     logo: material/cloud
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search:
+      lang: ru
+  - glightbox:
+      touchNavigation: false
+      loop: false
+      effect: zoom
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
 nav:
   - Описание: "index.md"
   - WEGA Server:

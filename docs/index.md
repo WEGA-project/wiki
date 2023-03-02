@@ -1,9 +1,8 @@
 # Описание
 
-<div align="center">
-  <a href="https://raw.githubusercontent.com/WEGA-project/WEGA/master/wega.png"><img src="https://raw.githubusercontent.com/WEGA-project/WEGA/master/wega.png" width="350"></a>
-</div>
-
+<figure markdown>
+  ![](assets/wega_v2.png){ width="500" }
+</figure>
 
 Проект `WEGA (Web E-Garden Automation)` - это экосистема объединяющая программно/аппаратные средства, цель которой, контролировать и помогать выращивать растения на гидропонике. 
 
@@ -11,9 +10,11 @@
 
 Ниже можно видеть всю экосистему, где блоки 1-4 и 13, это части `WEGA`
 
-<div align="center">
-  <a href="assets/wega-ecosystem.png"><img src="assets/wega-ecosystem.png" width="650"></a>
-</div>
+<figure markdown>
+  ![wega-ecosystem](assets/wega-ecosystem.png){ width="500" }
+  <figcaption>wega-ecosystem</figcaption>
+</figure>
+
 
 ## Расшифровка
 1. [WEGA-GUI](manual_install.md) - модуль отображения статистики измерений выдает данные по фактическому состоянию растворов
