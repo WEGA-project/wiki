@@ -35,6 +35,7 @@
     * Не забыть скопировать и сохранить информацию для веб доступа и `WEGABOX`
 
 === "Видео установки WEGA SERVER"
-    [![](../assets/title_out.png)](https://youtu.be/TOMY-anSX0E)
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TOMY-anSX0E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 ⚠️ **ВАЖНО: Если решили поднимать сервер на AWS, помните про security groups(доступ к серверу необходимо разрешить для вашего IP адреса на 80 порт)** ⚠️
