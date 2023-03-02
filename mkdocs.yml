@@ -46,6 +46,14 @@ plugins:
         - custom-skip-class-name
       auto_caption: false
       caption_position: bottom
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/WEGA-project
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/WEGA_SERVER
+extra_css:
+  - stylesheets/extra.css
 nav:
   - Описание: "index.md"
   - WEGA Server:
@@ -54,3 +62,5 @@ nav:
       - Ручная установка: "server/manual_install.md"
   - WEGABOX:
       - Описание: "box/box.md"
+  - 3D Модели:
+      - ЕС: "3d/ec.md"
