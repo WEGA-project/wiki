@@ -1,4 +1,6 @@
 site_name: WEGA-project
+site_url: https://wega-project.github.io/wiki/
+repo_url: https://github.com/WEGA-project/wiki
 theme:
   # features:
   #   - header.autohide
@@ -57,9 +59,9 @@ extra_css:
 nav:
   - Описание: "index.md"
   - WEGA Server:
-      - Как настроить: "server/install.md"
-      - Установка через скрипт: "server/auto_install.md"
-      - Ручная установка: "server/manual_install.md"
+      - Как установить: server/install.md
+      - Установка через скрипт: server/auto_install.md
+      - Ручная установка: server/manual_install.md
   - WEGABOX:
       - Описание: "box/box.md"
   - 3D Модели:

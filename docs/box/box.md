@@ -7,6 +7,7 @@ Web Electronic Garden Automatic on ESP32.
 И так, что же такое **WEGABOX** <a name="what_is_wegabox"></a>
 
 **WEGABOX** это система контроля и мониторинга состояния гидропонной системы, куда входят следущие возможности
+
 * Мониторинг `ЕС`
 * Мониторинг `pH`
 * Мониторинг `Температуры воздуха и раствора`(в баке и в корневой зоне)
@@ -57,7 +58,7 @@ Web Electronic Garden Automatic on ESP32.
 <a href="../assets/jack_connections.png"><img src="../assets/jack_connections.png" width="300"></a>
 
 ---
-## Компоненты для заказа <a name="what_to_buy"></a>
+## Компоненты для заказа
  1. Плата контроллера [ESP32-WROOM-32D или ESP32-WROOM-32U](https://www.aliexpress.com/wholesale?&SearchText=ESP32-WROOM-32D+ESP32-WROOM-32U+)
  1. Датчик температуры и влажности [ATH10](https://aliexpress.ru/wholesale?SearchText=AHT10). [Пример позиции](https://aliexpress.ru/item/4000961263862.html)
  1. Фоторезистор [GL5528](https://aliexpress.ru/wholesale?SearchText=GL5528) для измерения света. [Пример позиции](https://aliexpress.ru/item/1125719348.html)
