@@ -1,11 +1,10 @@
-# Установка
-
-## WEGA Server и как его настроить
+# WEGA Server и как его настроить
 ## Установка Ubuntu сервера
 Пример развертываниея сервервара на базе `ubuntu-server`
+
 * Загрузить установочный образ: 
-    * Обычный метод: https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso
-    * Через ТОРРЕНТ: https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso.torrent
+    * Обычный метод: [ubuntu-20.04](https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso)
+    * Через ТОРРЕНТ: [ubuntu-20.04](https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso.torrent)
 * Нарезаем на флешку или cd диск
 * При установке выбираем русский язык (это важно так как скрипты содержат русский текст)
 * При выборе компонентов добавляем `OpenSSH server` остальное установим потом уже из консоли `ssh`.

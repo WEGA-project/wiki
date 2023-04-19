@@ -1,7 +1,11 @@
 site_name: WEGA-project
+site_url: https://wega-project.github.io/wiki/
+repo_url: https://github.com/WEGA-project/wiki
 theme:
+  # features:
+  #   - header.autohide
   name: material
-  favicon: "img/favicon.ico"
+  favicon: "assets/favicon.ico"
   palette:
     # Palette toggle for light mode
     - scheme: default
@@ -18,16 +22,47 @@ theme:
         name: Switch to light mode
       primary: green
       accent: teal
-
   font:
     text: Ubuntu
   icon:
     logo: material/cloud
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search:
+      lang: ru
+  - glightbox:
+      touchNavigation: false
+      loop: false
+      effect: zoom
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/WEGA-project
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/WEGA_SERVER
+extra_css:
+  - stylesheets/extra.css
 nav:
   - Описание: "index.md"
   - WEGA Server:
-      - Как настроить: "server/install.md"
-      - Установка через скрипт: "server/auto_install.md"
-      - Ручная установка: "server/manual_install.md"
+      - Как установить: server/install.md
+      - Установка через скрипт: server/auto_install.md
+      - Ручная установка: server/manual_install.md
   - WEGABOX:
       - Описание: "box/box.md"
+  - 3D Модели:
+      - ЕС: "3d/ec.md"
