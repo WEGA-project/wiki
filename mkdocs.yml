@@ -57,12 +57,9 @@ extra:
 extra_css:
   - stylesheets/extra.css
 nav:
-  - Описание: "index.md"
-  - WEGA Server:
-      - Как установить: server/install.md
-      - Установка через скрипт: server/auto_install.md
-      - Ручная установка: server/manual_install.md
-  - WEGABOX:
-      - Описание: "box/box.md"
-  - 3D Модели:
-      - ЕС: "3d/ec.md"
+  - WEGA-PROJECT: index.md
+  - WEGA-SERVER: wega-server.md
+  - WEGABOX: wega-box.md
+  - WEGA-DOSER: wega-doser.md
+  - WEGA-MIXER: wega-mixer.md
+  - WEGA-HPG: wega-hpg.md
