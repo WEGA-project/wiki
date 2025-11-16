@@ -6,14 +6,14 @@
 **На плате <big>SW2</big> это кнопка BOOT <big>SW1</big> это кнопка RESET**
 
 ## Прошивка
-![Подключение для первичной прошивки с помощью USB-TTL конвертера](../assets/Wb56firmware.png)
+![Подключение для первичной прошивки с помощью USB-TTL конвертера](assets/Wb56firmware.png)
 
 ##### Прошивка через usb-ttl(usb-uart)
 драйвер качаем отсюда https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
 
 для прошивки обязательно нужен переходник usb-ttl - например такой [Модуль CP2102 от USB к TTL](https://aliexpress.ru/item/1005005180603292.html?spm=a2g2w.productlist.0.0.1bea4aa6uL0Lgp&sku_id=12000031995504947) а так же кабеля для подключения к плате
 
-![usb-ttl ali-express](../assets/Usb-ttl.png)
+![usb-ttl ali-express](assets/Usb-ttl.png)
 
 
 Подключение происходит GND=>GND, TX=>RX, RX=>TX<gallery>
@@ -24,10 +24,10 @@
 Serial port /dev/cu.usbserial-0001
 
 Connecting......................
-![мини](../assets/Vs-code прошивка.png)
+![мини](assets/Vs-code прошивка.png)
 
 
-![platformio-logs](../assets/Platformio-logs.png)
+![platformio-logs](assets/Platformio-logs.png)
 
 
 
@@ -45,7 +45,7 @@ Connecting......................
 
 
 Конец прошивки до нажатия выглядит так
-![конец прошивки](../assets/Конец прошивки.png)
+![конец прошивки](assets/Конец прошивки.png)
 
 
 
@@ -55,7 +55,7 @@ Connecting......................
 **По окончании прошивки жмем SW1**
 
 после нажатия sw1 пошла прошивка грузиться и работать устройство
-![SW1 press](../assets/SW1 press.png)
+![SW1 press](assets/SW1 press.png)
 
 
 
