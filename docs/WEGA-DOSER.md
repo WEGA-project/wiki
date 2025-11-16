@@ -29,4 +29,3 @@
   <img src="assets/Doser 4.jpg" alt="Doser 4.jpg" />
 </div>
 
-[Категория:WEGA-DOSER](Категория_WEGA-DOSER.md)

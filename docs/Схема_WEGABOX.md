@@ -3,4 +3,3 @@
 Файл:WEGABOX-4.4 shm2.png|Силовая часть
 Файл:WEGABOX-4.4 shm3-Jack-s.png|Распиновка джеков
 </gallery>
-[Категория:WEGABOX](Категория_WEGABOX.md)

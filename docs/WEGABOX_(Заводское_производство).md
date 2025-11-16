@@ -1,5 +1,5 @@
 [WEGABOX 5.6](WEGABOX_5.6.md) Заводская сборка, организатор совместной закупки https://t.me/Sunny0s![Плата WEGABOX 5.4.2 - заводское производство](assets/Wegabox 5.4.2.png)
-[категория: WEGABOX](категория__WEGABOX.md)
+
 [WEGABOX 5.4.2](WEGABOX_5.4.2.md) Заводская сборка, организатор совместной закупки https://t.me/siv237
 
 

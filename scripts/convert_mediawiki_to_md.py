@@ -363,12 +363,21 @@ def _build_markdown_table(header: list[str], rows: list[list[str]]) -> list[str]
     return result
 
 
+def remove_category_links(text: str) -> str:
+    """Remove MediaWiki category links [[Категория:...]] or [[Category:...]]."""
+    
+    # Remove category links
+    text = re.sub(r'\[\[(?:Категория|Category|категория|category):([^\]]+)\]\]', '', text, flags=re.IGNORECASE)
+    return text
+
+
 def convert_text(text: str) -> str:
     """Run all conversions on a single MediaWiki source string."""
 
     # Order matters: tables and galleries first (they do not use [[...]]), then formatting/links.
     text = convert_tables(text)
     text = convert_galleries(text)
+    text = remove_category_links(text)
     text = convert_headings(text)
     text = convert_emphasis(text)
     text = convert_external_links(text)
@@ -416,7 +425,7 @@ def fetch_page_raw(title: str) -> str:
 
 
 def fetch_all_pages_from_api() -> list[str]:
-    """Fetch list of all pages from MediaWiki API."""
+    """Fetch list of all pages from MediaWiki API (excluding redirects)."""
     
     import json
     
@@ -424,10 +433,11 @@ def fetch_all_pages_from_api() -> list[str]:
     apcontinue = None
     
     while True:
-        # Build API URL
+        # Build API URL - exclude redirects
         params = {
             "action": "query",
             "list": "allpages",
+            "apfilterredir": "nonredirects",
             "aplimit": "500",
             "format": "json",
         }
@@ -460,6 +470,88 @@ def fetch_all_pages_from_api() -> list[str]:
             break
     
     return pages
+
+
+def fetch_redirects_from_api() -> dict[str, str]:
+    """Fetch all redirects from MediaWiki API. Returns dict of {redirect_title: target_title}."""
+    
+    import json
+    
+    redirects = {}
+    apcontinue = None
+    
+    while True:
+        # Build API URL - only redirects
+        params = {
+            "action": "query",
+            "list": "allpages",
+            "apfilterredir": "redirects",
+            "aplimit": "500",
+            "format": "json",
+        }
+        
+        if apcontinue:
+            params["apcontinue"] = apcontinue
+        
+        query_string = urllib.parse.urlencode(params)
+        api_url = f"{MEDIAWIKI_BASE_URL.rsplit('/', 1)[0]}/api.php?{query_string}"
+        
+        try:
+            with urllib.request.urlopen(api_url, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            
+            # Extract redirect titles
+            if "query" in data and "allpages" in data["query"]:
+                for page in data["query"]["allpages"]:
+                    title = page.get("title", "")
+                    if title:
+                        # Get redirect target
+                        target = get_redirect_target(title)
+                        if target:
+                            redirects[title] = target
+            
+            # Check if there are more pages
+            if "continue" in data and "apcontinue" in data["continue"]:
+                apcontinue = data["continue"]["apcontinue"]
+            else:
+                break
+                
+        except Exception as e:
+            print(f"Error fetching redirects from API: {e}")
+            break
+    
+    return redirects
+
+
+def get_redirect_target(title: str) -> str | None:
+    """Get the target page for a redirect."""
+    
+    import json
+    
+    params = {
+        "action": "query",
+        "titles": title,
+        "redirects": "1",
+        "format": "json",
+    }
+    
+    query_string = urllib.parse.urlencode(params)
+    api_url = f"{MEDIAWIKI_BASE_URL.rsplit('/', 1)[0]}/api.php?{query_string}"
+    
+    try:
+        with urllib.request.urlopen(api_url, timeout=30) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        
+        # Check for redirects in response
+        if "query" in data and "redirects" in data["query"]:
+            redirects_list = data["query"]["redirects"]
+            if redirects_list and len(redirects_list) > 0:
+                return redirects_list[0].get("to")
+        
+        return None
+        
+    except Exception:
+        return None
 
 
 def extract_image_filenames(text: str) -> set[str]:
@@ -646,6 +738,25 @@ def main(argv: list[str] | None = None) -> int:
         if not pages:
             print("No page titles found to convert in remote mode.")
             return 0
+
+        # Fetch and create redirects
+        print("Fetching redirects...")
+        redirects = fetch_redirects_from_api()
+        if redirects:
+            print(f"Found {len(redirects)} redirect(s)")
+            for redirect_title, target_title in redirects.items():
+                base_name = sanitize_title_to_filename(redirect_title)
+                target_name = sanitize_title_to_filename(target_title)
+                dst = DOCS_DIR / f"{base_name}.md"
+                
+                # Create redirect file with meta refresh
+                redirect_content = f"---\nredirect_to: {target_name}.md\n---\n\n[Redirected to {target_title}]({target_name}.md)\n"
+                
+                if args.dry_run:
+                    print(f"[DRY RUN][redirect] {redirect_title!r} -> {target_name}.md")
+                else:
+                    dst.write_text(redirect_content, encoding="utf-8")
+                    print(f"Created redirect {redirect_title!r} -> {target_title!r}")
 
         for title in pages:
             if not title:
