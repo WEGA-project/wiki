@@ -20,9 +20,9 @@
 7.  желательно использовать радиаторы - достаточно будет маленького, или ставить меньшие шаги, как на картинке
 8.  записываем полученные мл в настройки дозера, сохраняем и проверяем указав меньшее количество в налив - например вы откалибровали на 35 мл, поставить налить 15 и посмотрите совпадут ли цифры - должны совпасть
 
-![Doser settings](assets/doser_settings.png)
-![Image](assets/image.png)
-![Docer](assets/docer.png)
-![Doser podkl](assets/doser_podkl.jpg)
-![Doser podkl2](assets/doser_podkl2.jpg)
-![Doser 4](assets/doser_4.jpg)
+![Doser settings](assets/Doser_settings.png)
+![Image](assets/Image.png)
+![Docer](assets/Docer.png)
+![Doser podkl](assets/Doser_podkl.jpg)
+![Doser podkl2](assets/Doser_podkl2.jpg)
+![Doser 4](assets/Doser_4.jpg)
