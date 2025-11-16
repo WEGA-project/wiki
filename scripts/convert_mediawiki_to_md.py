@@ -90,7 +90,8 @@ def convert_external_links(text: str) -> str:
 
 def _is_file_link_target(target: str) -> bool:
     lower = target.lower()
-    return lower.startswith("файл:") or lower.startswith("file:")
+    # Handle both [[Файл:...]] and [[:Файл:...]] (with leading colon)
+    return lower.startswith("файл:") or lower.startswith("file:") or lower.startswith(":файл:") or lower.startswith(":file:")
 
 
 def convert_internal_links(text: str) -> str:
@@ -102,7 +103,9 @@ def convert_internal_links(text: str) -> str:
 
         # File / image links
         if _is_file_link_target(target):
-            rest = target.split(":", 1)[1].strip() if ":" in target else target
+            # Remove leading colon if present (for [[:Файл:...]])
+            clean_target = target.lstrip(':')
+            rest = clean_target.split(":", 1)[1].strip() if ":" in clean_target else clean_target
             filename = rest.strip()
             
             # Normalize filename - MediaWiki replaces spaces with underscores
@@ -117,14 +120,21 @@ def convert_internal_links(text: str) -> str:
             if not alt_text:
                 alt_text = filename
 
-            # Check if it's a video file
+            # Check file type
             video_extensions = ('.mp4', '.webm', '.ogg', '.mov', '.avi')
-            if any(normalized_filename.lower().endswith(ext) for ext in video_extensions):
+            image_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.bmp')
+            
+            lower_filename = normalized_filename.lower()
+            
+            if any(lower_filename.endswith(ext) for ext in video_extensions):
                 # Use HTML5 video tag for videos
                 return f'<video controls width="100%"><source src="assets/{normalized_filename}" type="video/mp4">Your browser does not support the video tag.</video>'
-            
-            # Use relative path - works with use_directory_urls: false
-            return f"![{alt_text}](assets/{normalized_filename})"
+            elif any(lower_filename.endswith(ext) for ext in image_extensions):
+                # Use markdown image syntax for images
+                return f"![{alt_text}](assets/{normalized_filename})"
+            else:
+                # For other files (zip, pdf, etc), create download link
+                return f"[{alt_text}](assets/{normalized_filename})"
 
         # Normal internal page links
         page_name = target
@@ -706,11 +716,13 @@ def extract_image_filenames(text: str) -> set[str]:
     
     images: set[str] = set()
     
-    # Find [[Файл:...]] and [[File:...]] links
+    # Find [[Файл:...]] and [[File:...]] and [[:Файл:...]] links
     for match in _INT_LINK_PATTERN.finditer(text):
         target = match.group(1).strip()
         if _is_file_link_target(target):
-            rest = target.split(":", 1)[1].strip() if ":" in target else target
+            # Remove leading colon if present
+            clean_target = target.lstrip(':')
+            rest = clean_target.split(":", 1)[1].strip() if ":" in clean_target else clean_target
             filename = rest.strip()
             images.add(filename)
     
