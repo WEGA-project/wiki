@@ -104,6 +104,9 @@ def convert_internal_links(text: str) -> str:
         if _is_file_link_target(target):
             rest = target.split(":", 1)[1].strip() if ":" in target else target
             filename = rest.strip()
+            
+            # Normalize filename - MediaWiki replaces spaces with underscores
+            normalized_filename = filename.replace(' ', '_')
 
             alt_text = ""
             if label:
@@ -116,12 +119,12 @@ def convert_internal_links(text: str) -> str:
 
             # Check if it's a video file
             video_extensions = ('.mp4', '.webm', '.ogg', '.mov', '.avi')
-            if any(filename.lower().endswith(ext) for ext in video_extensions):
+            if any(normalized_filename.lower().endswith(ext) for ext in video_extensions):
                 # Use HTML5 video tag for videos
-                return f'<video controls width="100%"><source src="assets/{filename}" type="video/mp4">Your browser does not support the video tag.</video>'
+                return f'<video controls width="100%"><source src="assets/{normalized_filename}" type="video/mp4">Your browser does not support the video tag.</video>'
             
             # Use relative path - works with use_directory_urls: false
-            return f"![{alt_text}](assets/{filename})"
+            return f"![{alt_text}](assets/{normalized_filename})"
 
         # Normal internal page links
         page_name = target
@@ -175,8 +178,10 @@ def _build_gallery_html(lines: Iterable[str]) -> str:
     # Convert to markdown images - glightbox will automatically create gallery
     out: list[str] = []
     for filename, caption in images:
+        # Normalize filename - MediaWiki replaces spaces with underscores
+        normalized_filename = filename.replace(' ', '_')
         alt = caption or filename
-        out.append(f"![{alt}](assets/{filename})")
+        out.append(f"![{alt}](assets/{normalized_filename})")
     
     return "\n\n".join(out)
 
@@ -663,27 +668,47 @@ def extract_image_filenames(text: str) -> set[str]:
             filename = rest.strip()
             images.add(filename)
     
-    # Find images in <gallery> tags
-    lines = text.splitlines()
+    # Find images in <gallery> tags - handle both multiline and inline galleries
     in_gallery = False
+    gallery_content = []
     
-    for line in lines:
-        stripped = line.strip()
+    # First, extract all gallery content
+    i = 0
+    while i < len(text):
+        gallery_start = text.find("<gallery", i)
+        if gallery_start == -1:
+            break
         
-        if stripped.startswith("<gallery"):
-            in_gallery = True
-            continue
+        gallery_tag_end = text.find(">", gallery_start)
+        if gallery_tag_end == -1:
+            break
         
-        if "</gallery>" in line:
-            in_gallery = False
-            continue
+        gallery_end = text.find("</gallery>", gallery_tag_end)
+        if gallery_end == -1:
+            break
         
-        if in_gallery and stripped:
-            if stripped.lower().startswith(("файл:", "file:")):
-                rest = stripped.split(":", 1)[1]
-                parts = [p.strip() for p in rest.split("|")]
-                if parts:
-                    images.add(parts[0])
+        # Extract content between <gallery...> and </gallery>
+        content = text[gallery_tag_end + 1:gallery_end]
+        gallery_content.append(content)
+        
+        i = gallery_end + len("</gallery>")
+    
+    # Parse gallery content for filenames
+    for content in gallery_content:
+        for line in content.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                continue
+            
+            # Check if line starts with file marker
+            lower_line = stripped.lower()
+            if lower_line.startswith(("файл:", "file:")):
+                colon_pos = stripped.find(":")
+                if colon_pos != -1:
+                    rest = stripped[colon_pos + 1:]
+                    parts = [p.strip() for p in rest.split("|")]
+                    if parts and parts[0]:
+                        images.add(parts[0])
     
     return images
 
@@ -725,9 +750,17 @@ def get_image_url_from_api(filename: str) -> str | None:
 def download_image(filename: str, assets_dir: Path, dry_run: bool = False) -> bool:
     """Download a single image from MediaWiki to assets directory."""
     
-    # Skip if already exists
-    dest_path = assets_dir / filename
+    # Normalize filename - MediaWiki replaces spaces with underscores in actual files
+    normalized_filename = filename.replace(' ', '_')
+    
+    # Skip if already exists (check both original and normalized names)
+    dest_path = assets_dir / normalized_filename
     if dest_path.exists():
+        return True
+    
+    # Also check original name
+    orig_path = assets_dir / filename
+    if orig_path.exists():
         return True
     
     if dry_run:
@@ -746,8 +779,9 @@ def download_image(filename: str, assets_dir: Path, dry_run: bool = False) -> bo
             data = resp.read()
         
         assets_dir.mkdir(parents=True, exist_ok=True)
+        # Save with normalized name (spaces -> underscores)
         dest_path.write_bytes(data)
-        print(f"  Downloaded: {filename}")
+        print(f"  Downloaded: {normalized_filename}")
         return True
         
     except urllib.error.HTTPError as e:

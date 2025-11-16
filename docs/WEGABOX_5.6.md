@@ -1,8 +1,8 @@
-![Photo 2023-04-23 02-48-34 (2).jpg](assets/Photo 2023-04-23 02-48-34 (2).jpg)
+![Photo 2023-04-23 02-48-34 (2).jpg](assets/Photo_2023-04-23_02-48-34_(2).jpg)
 
-![Photo 2023-04-23 02-48-34.jpg](assets/Photo 2023-04-23 02-48-34.jpg)
+![Photo 2023-04-23 02-48-34.jpg](assets/Photo_2023-04-23_02-48-34.jpg)
 
-![Photo 2023-04-23 02-48-27.jpg](assets/Photo 2023-04-23 02-48-27.jpg)
+![Photo 2023-04-23 02-48-27.jpg](assets/Photo_2023-04-23_02-48-27.jpg)
 **На плате <big>SW2</big> это кнопка BOOT <big>SW1</big> это кнопка RESET**
 
 ## Прошивка
@@ -25,7 +25,7 @@
 Serial port /dev/cu.usbserial-0001
 
 Connecting......................
-![мини](assets/Vs-code прошивка.png)
+![мини](assets/Vs-code_прошивка.png)
 
 
 ![platformio-logs](assets/Platformio-logs.png)
@@ -46,7 +46,7 @@ Connecting......................
 
 
 Конец прошивки до нажатия выглядит так
-![конец прошивки](assets/Конец прошивки.png)
+![конец прошивки](assets/Конец_прошивки.png)
 
 
 
@@ -56,7 +56,7 @@ Connecting......................
 **По окончании прошивки жмем SW1**
 
 после нажатия sw1 пошла прошивка грузиться и работать устройство
-![SW1 press](assets/SW1 press.png)
+![SW1 press](assets/SW1_press.png)
 
 
 
