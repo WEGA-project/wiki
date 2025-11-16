@@ -31,15 +31,25 @@
 Такой вариант позволяет сохранять готовые растворы долгое время и быстро выполнять калибровку или проверку калибровки. Обычно изготавливается 3 бутылки.
 
 Разница с первым способом в том, что тут мы доливаем воду к влитым заранее ампулам, доводя ее во всех случаях ровно до 500 или 1000 мл, в зависимости от объема приготовления.
-![Cacl.png](assets/Cacl.png)
+<div class="gallery" markdown="1">
 
-![Photo 2022-05-17 19-12-24.jpg](assets/Photo_2022-05-17_19-12-24.jpg)
+<a href="assets/Cacl.png" data-gallery="gallery" data-caption="Cacl.png">
+  <img src="assets/Cacl.png" alt="Cacl.png" width="200" />
+</a>
+<a href="assets/Photo_2022-05-17_19-12-24.jpg" data-gallery="gallery" data-caption="Photo 2022-05-17 19-12-24.jpg">
+  <img src="assets/Photo_2022-05-17_19-12-24.jpg" alt="Photo 2022-05-17 19-12-24.jpg" width="200" />
+</a>
+<a href="assets/Photo_2022-05-17_19-12-24_(2).jpg" data-gallery="gallery" data-caption="Photo 2022-05-17 19-12-24 (2).jpg">
+  <img src="assets/Photo_2022-05-17_19-12-24_(2).jpg" alt="Photo 2022-05-17 19-12-24 (2).jpg" width="200" />
+</a>
+<a href="assets/Photo_2022-05-17_19-12-25.jpg" data-gallery="gallery" data-caption="Photo 2022-05-17 19-12-25.jpg">
+  <img src="assets/Photo_2022-05-17_19-12-25.jpg" alt="Photo 2022-05-17 19-12-25.jpg" width="200" />
+</a>
+<a href="assets/Photo_2022-05-17_19-12-25_(2).jpg" data-gallery="gallery" data-caption="Photo 2022-05-17 19-12-25 (2).jpg">
+  <img src="assets/Photo_2022-05-17_19-12-25_(2).jpg" alt="Photo 2022-05-17 19-12-25 (2).jpg" width="200" />
+</a>
 
-![Photo 2022-05-17 19-12-24 (2).jpg](assets/Photo_2022-05-17_19-12-24_(2).jpg)
-
-![Photo 2022-05-17 19-12-25.jpg](assets/Photo_2022-05-17_19-12-25.jpg)
-
-![Photo 2022-05-17 19-12-25 (2).jpg](assets/Photo_2022-05-17_19-12-25_(2).jpg)
+</div>
 
 Получим там где:
 

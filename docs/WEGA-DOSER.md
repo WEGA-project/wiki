@@ -22,14 +22,25 @@
 
 1. записываем полученные мл в настройки дозера, сохраняем и проверяем указав меньшее количество в налив - например вы откалибровали на 35 мл, поставить налить 15 и посмотрите совпадут ли цифры - должны совпасть
 
-![Doser settings.png](assets/Doser_settings.png)
+<div class="gallery" markdown="1">
 
-![Image.png](assets/Image.png)
+<a href="assets/Doser_settings.png" data-gallery="gallery" data-caption="Doser settings.png">
+  <img src="assets/Doser_settings.png" alt="Doser settings.png" width="200" />
+</a>
+<a href="assets/Image.png" data-gallery="gallery" data-caption="Image.png">
+  <img src="assets/Image.png" alt="Image.png" width="200" />
+</a>
+<a href="assets/Docer.png" data-gallery="gallery" data-caption="Docer.png">
+  <img src="assets/Docer.png" alt="Docer.png" width="200" />
+</a>
+<a href="assets/Doser_podkl.jpg" data-gallery="gallery" data-caption="Doser podkl.jpg">
+  <img src="assets/Doser_podkl.jpg" alt="Doser podkl.jpg" width="200" />
+</a>
+<a href="assets/Doser_podkl2.jpg" data-gallery="gallery" data-caption="Doser podkl2.jpg">
+  <img src="assets/Doser_podkl2.jpg" alt="Doser podkl2.jpg" width="200" />
+</a>
+<a href="assets/Doser_4.jpg" data-gallery="gallery" data-caption="Doser 4.jpg">
+  <img src="assets/Doser_4.jpg" alt="Doser 4.jpg" width="200" />
+</a>
 
-![Docer.png](assets/Docer.png)
-
-![Doser podkl.jpg](assets/Doser_podkl.jpg)
-
-![Doser podkl2.jpg](assets/Doser_podkl2.jpg)
-
-![Doser 4.jpg](assets/Doser_4.jpg)
+</div>

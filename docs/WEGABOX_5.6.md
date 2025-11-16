@@ -1,8 +1,16 @@
-![Photo 2023-04-23 02-48-34 (2).jpg](assets/Photo_2023-04-23_02-48-34_(2).jpg)
+<div class="gallery" markdown="1">
 
-![Photo 2023-04-23 02-48-34.jpg](assets/Photo_2023-04-23_02-48-34.jpg)
+<a href="assets/Photo_2023-04-23_02-48-34_(2).jpg" data-gallery="gallery" data-caption="Photo 2023-04-23 02-48-34 (2).jpg">
+  <img src="assets/Photo_2023-04-23_02-48-34_(2).jpg" alt="Photo 2023-04-23 02-48-34 (2).jpg" width="200" />
+</a>
+<a href="assets/Photo_2023-04-23_02-48-34.jpg" data-gallery="gallery" data-caption="Photo 2023-04-23 02-48-34.jpg">
+  <img src="assets/Photo_2023-04-23_02-48-34.jpg" alt="Photo 2023-04-23 02-48-34.jpg" width="200" />
+</a>
+<a href="assets/Photo_2023-04-23_02-48-27.jpg" data-gallery="gallery" data-caption="Photo 2023-04-23 02-48-27.jpg">
+  <img src="assets/Photo_2023-04-23_02-48-27.jpg" alt="Photo 2023-04-23 02-48-27.jpg" width="200" />
+</a>
 
-![Photo 2023-04-23 02-48-27.jpg](assets/Photo_2023-04-23_02-48-27.jpg)
+</div>
 **На плате <big>SW2</big> это кнопка BOOT <big>SW1</big> это кнопка RESET**
 
 ## Прошивка
@@ -17,9 +25,16 @@
 
 
 Подключение происходит GND=>GND, TX=>RX, RX=>TX
-![Usb-ttl3.jpg](assets/Usb-ttl3.jpg)
+<div class="gallery" markdown="1">
 
-![Usb-ttl-2.jpg](assets/Usb-ttl-2.jpg)
+<a href="assets/Usb-ttl3.jpg" data-gallery="gallery" data-caption="Usb-ttl3.jpg">
+  <img src="assets/Usb-ttl3.jpg" alt="Usb-ttl3.jpg" width="200" />
+</a>
+<a href="assets/Usb-ttl-2.jpg" data-gallery="gallery" data-caption="Usb-ttl-2.jpg">
+  <img src="assets/Usb-ttl-2.jpg" alt="Usb-ttl-2.jpg" width="200" />
+</a>
+
+</div>
 Далее выбираем нужный порт в программе которой прошиваем, нажимаем прошить, зажимаем SW2 нажимаем SW1 и отпускаем, SW2 держим пока не пойдет процесс прошивки - на скриншоте это момент когда видим следующие строки
 
 Serial port /dev/cu.usbserial-0001

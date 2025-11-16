@@ -139,7 +139,7 @@ def convert_internal_links(text: str) -> str:
 
 
 def _build_gallery_html(lines: Iterable[str]) -> str:
-    """Build gallery as markdown images - glightbox will handle the gallery display.
+    """Build gallery with HTML wrapper for glightbox.
 
     Each line is expected to be in one of forms:
       - 'Файл:img.png'
@@ -175,15 +175,24 @@ def _build_gallery_html(lines: Iterable[str]) -> str:
         # Fallback: just join original lines if we couldn't parse anything useful
         return "\n".join(lines)
 
-    # Convert to markdown images - glightbox will automatically create gallery
+    # Build HTML gallery with glightbox data attributes
     out: list[str] = []
+    out.append('<div class="gallery" markdown="1">')
+    out.append('')
+    
     for filename, caption in images:
         # Normalize filename - MediaWiki replaces spaces with underscores
         normalized_filename = filename.replace(' ', '_')
         alt = caption or filename
-        out.append(f"![{alt}](assets/{normalized_filename})")
+        # Add data-gallery attribute to group images
+        out.append(f'<a href="assets/{normalized_filename}" data-gallery="gallery" data-caption="{alt}">')
+        out.append(f'  <img src="assets/{normalized_filename}" alt="{alt}" width="200" />')
+        out.append('</a>')
     
-    return "\n\n".join(out)
+    out.append('')
+    out.append('</div>')
+    
+    return "\n".join(out)
 
 
 def convert_galleries(text: str) -> str:

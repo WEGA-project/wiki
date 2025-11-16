@@ -42,34 +42,55 @@
 - Выжидаем так сутки, проверяем на КЗ и если все в порядке собираем корпус
 - Припаиваем Jack 3.5
 
-![Ес000.png](assets/Ес000.png)
+<div class="gallery" markdown="1">
 
-![Ec0.png](assets/Ec0.png)
+<a href="assets/Ес000.png" data-gallery="gallery" data-caption="Ес000.png">
+  <img src="assets/Ес000.png" alt="Ес000.png" width="200" />
+</a>
+<a href="assets/Ec0.png" data-gallery="gallery" data-caption="Ec0.png">
+  <img src="assets/Ec0.png" alt="Ec0.png" width="200" />
+</a>
+<a href="assets/Ес00.png" data-gallery="gallery" data-caption="Ес00.png">
+  <img src="assets/Ес00.png" alt="Ес00.png" width="200" />
+</a>
+<a href="assets/Ес12.png" data-gallery="gallery" data-caption="Ес12.png">
+  <img src="assets/Ес12.png" alt="Ес12.png" width="200" />
+</a>
+<a href="assets/Ecpin.png" data-gallery="gallery" data-caption="Ecpin.png">
+  <img src="assets/Ecpin.png" alt="Ecpin.png" width="200" />
+</a>
+<a href="assets/Ес17.png" data-gallery="gallery" data-caption="Ес17.png">
+  <img src="assets/Ес17.png" alt="Ес17.png" width="200" />
+</a>
+<a href="assets/Ес13.png" data-gallery="gallery" data-caption="Ес13.png">
+  <img src="assets/Ес13.png" alt="Ес13.png" width="200" />
+</a>
+<a href="assets/Ес14.png" data-gallery="gallery" data-caption="Ес14.png">
+  <img src="assets/Ес14.png" alt="Ес14.png" width="200" />
+</a>
+<a href="assets/Ес16.png" data-gallery="gallery" data-caption="Ес16.png">
+  <img src="assets/Ес16.png" alt="Ес16.png" width="200" />
+</a>
+<a href="assets/Ес15.png" data-gallery="gallery" data-caption="Ес15.png">
+  <img src="assets/Ес15.png" alt="Ес15.png" width="200" />
+</a>
+<a href="assets/Ec1.png" data-gallery="gallery" data-caption="Ec1.png">
+  <img src="assets/Ec1.png" alt="Ec1.png" width="200" />
+</a>
+<a href="assets/Ec11.png" data-gallery="gallery" data-caption="Ec11.png">
+  <img src="assets/Ec11.png" alt="Ec11.png" width="200" />
+</a>
+<a href="assets/Ec2.png" data-gallery="gallery" data-caption="Ec2.png">
+  <img src="assets/Ec2.png" alt="Ec2.png" width="200" />
+</a>
+<a href="assets/Ec3.png" data-gallery="gallery" data-caption="Ec3.png">
+  <img src="assets/Ec3.png" alt="Ec3.png" width="200" />
+</a>
+<a href="assets/Photo_2023-04-27_13-46-02.jpg" data-gallery="gallery" data-caption="Photo 2023-04-27 13-46-02.jpg">
+  <img src="assets/Photo_2023-04-27_13-46-02.jpg" alt="Photo 2023-04-27 13-46-02.jpg" width="200" />
+</a>
+<a href="assets/Photo_2023-04-27_13-46-10.jpg" data-gallery="gallery" data-caption="Photo 2023-04-27 13-46-10.jpg">
+  <img src="assets/Photo_2023-04-27_13-46-10.jpg" alt="Photo 2023-04-27 13-46-10.jpg" width="200" />
+</a>
 
-![Ес00.png](assets/Ес00.png)
-
-![Ес12.png](assets/Ес12.png)
-
-![Ecpin.png](assets/Ecpin.png)
-
-![Ес17.png](assets/Ес17.png)
-
-![Ес13.png](assets/Ес13.png)
-
-![Ес14.png](assets/Ес14.png)
-
-![Ес16.png](assets/Ес16.png)
-
-![Ес15.png](assets/Ес15.png)
-
-![Ec1.png](assets/Ec1.png)
-
-![Ec11.png](assets/Ec11.png)
-
-![Ec2.png](assets/Ec2.png)
-
-![Ec3.png](assets/Ec3.png)
-
-![Photo 2023-04-27 13-46-02.jpg](assets/Photo_2023-04-27_13-46-02.jpg)
-
-![Photo 2023-04-27 13-46-10.jpg](assets/Photo_2023-04-27_13-46-10.jpg)
+</div>

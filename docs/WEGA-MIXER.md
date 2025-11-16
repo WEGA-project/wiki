@@ -1,13 +1,23 @@
 ## Описание
-![Миксер.jpg](assets/Миксер.jpg)
+<div class="gallery" markdown="1">
 
-![Миксер на плате вега.jpg](assets/Миксер_на_плате_вега.jpg)
+<a href="assets/Миксер.jpg" data-gallery="gallery" data-caption="Миксер.jpg">
+  <img src="assets/Миксер.jpg" alt="Миксер.jpg" width="200" />
+</a>
+<a href="assets/Миксер_на_плате_вега.jpg" data-gallery="gallery" data-caption="Миксер на плате вега.jpg">
+  <img src="assets/Миксер_на_плате_вега.jpg" alt="Миксер на плате вега.jpg" width="200" />
+</a>
+<a href="assets/Миксер2.jpg" data-gallery="gallery" data-caption="Миксер2.jpg">
+  <img src="assets/Миксер2.jpg" alt="Миксер2.jpg" width="200" />
+</a>
+<a href="assets/Веб_интерфейс_миксера.png" data-gallery="gallery" data-caption="Веб интерфейс миксера.png">
+  <img src="assets/Веб_интерфейс_миксера.png" alt="Веб интерфейс миксера.png" width="200" />
+</a>
+<a href="assets/Korpus.png" data-gallery="gallery" data-caption="Korpus.png">
+  <img src="assets/Korpus.png" alt="Korpus.png" width="200" />
+</a>
 
-![Миксер2.jpg](assets/Миксер2.jpg)
-
-![Веб интерфейс миксера.png](assets/Веб_интерфейс_миксера.png)
-
-![Korpus.png](assets/Korpus.png)
+</div>
 WEGA-MIXER - это программное обеспечение и аппаратное обеспечение для автоматического смешивания и дозирования различных реагентов. WEGA-MIXER разработан для использования в **домашних** условиях и предоставляет возможность **автоматизированного контроля и мониторинга процесса ВЗВЕШИВАНИЯ**.
 
 WEGA-MIXER позволяет создавать и запускать различные сценарии взвешивания/смешивания с предварительно заданными параметрами. Он также предоставляет интерфейс для мониторинга и контроля различных параметров процесса.
