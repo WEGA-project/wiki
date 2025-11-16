@@ -1,6 +1,7 @@
 site_name: WEGA-project
 site_url: https://wega-project.github.io/wiki/
 repo_url: https://github.com/WEGA-project/wiki
+use_directory_urls: false
 theme:
   # features:
   #   - header.autohide

@@ -114,7 +114,7 @@ def convert_internal_links(text: str) -> str:
             if not alt_text:
                 alt_text = filename
 
-            # Use path relative to docs root for images
+            # Use relative path - works with use_directory_urls: false
             return f"![{alt_text}](assets/{filename})"
 
         # Normal internal page links
