@@ -47,10 +47,10 @@
  /etc/init.d/apache2 restart
 
 #### Настройка авторизации для доступа к WEB консоли
-* Удаляем доступ без авторизации (если был настроен): <code>rm /etc/apache2/conf-enabled/WEGA.conf</code>
-* Создаем пользователя и пароль: <code>htpasswd -c /etc/apache2/.htpasswd username</code> где username это логин
-* Подключаем конфигурацию требующую авторизацию для доступа к страничке <code>ln -s /var/WEGA/apache/WEGA-auth.conf /etc/apache2/conf-enabled/</code>
-* Перезапускаем web сервер <code>/etc/init.d/apache2 restart</code>
+- Удаляем доступ без авторизации (если был настроен): <code>rm /etc/apache2/conf-enabled/WEGA.conf</code>
+- Создаем пользователя и пароль: <code>htpasswd -c /etc/apache2/.htpasswd username</code> где username это логин
+- Подключаем конфигурацию требующую авторизацию для доступа к страничке <code>ln -s /var/WEGA/apache/WEGA-auth.conf /etc/apache2/conf-enabled/</code>
+- Перезапускаем web сервер <code>/etc/init.d/apache2 restart</code>
 
 #### Настройка доступа сервера <code>WEGA</code> к базе данных
  cp /var/WEGA/example.db.php /var/WEGA/db.php
@@ -81,9 +81,9 @@
 
 где
 
-* <code>ip-address-server</code> это адрес сервера
-* <code>auth=adab637320e5c47624cdd15169276981</code> код доступа к <code>api</code> (должен быть задан в файле <code>/var/WEGA/wega-api/wegabox.php</code>)
-* <code>db=esp32wega</code> имя в базы данных для записи(для каждого модуля <code>ESP</code> должна быть своя база данных)
+- <code>ip-address-server</code> это адрес сервера
+- <code>auth=adab637320e5c47624cdd15169276981</code> код доступа к <code>api</code> (должен быть задан в файле <code>/var/WEGA/wega-api/wegabox.php</code>)
+- <code>db=esp32wega</code> имя в базы данных для записи(для каждого модуля <code>ESP</code> должна быть своя база данных)
 
 Это действие создаст базу даных с таблицей <code>sens</code> и внесет тестовый набор сеносоров как будто все они показывают значение единица.
 

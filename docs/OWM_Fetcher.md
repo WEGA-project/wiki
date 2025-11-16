@@ -3,19 +3,19 @@
 ## Подключение погодного модуля
 Он нужен для получения данных о текущей погоде и ее логирования с последующим включением в состав графиков wega.
 
-* Регистрируемся на сервисе и создаем api ключ на этой странице: <code><nowiki>https://home.openweathermap.org/api_keys</nowiki></code>
-* Найти ближайшую точку можно на карте: <code><nowiki>https://openweathermap.org/weathermap</nowiki></code>
+- Регистрируемся на сервисе и создаем api ключ на этой странице: <code><nowiki>https://home.openweathermap.org/api_keys</nowiki></code>
+- Найти ближайшую точку можно на карте: <code><nowiki>https://openweathermap.org/weathermap</nowiki></code>
 
 ### Установка
 <code>apt install curl jq</code>
 
-* Создадим скрипт загрузки погоды, незабыв указать свой город и ключ в поля <code>sity</code>, <code>apikey</code>
+- Создадим скрипт загрузки погоды, незабыв указать свой город и ключ в поля <code>sity</code>, <code>apikey</code>
 
  nano /usr/bin/owm-log
 
-* Добавим
+- Добавим
 <syntaxhighlight lang="bash" line="1">
-#!/bin/bash
+1. !/bin/bash
 sity="Khabarovsk,ru"
 apikey="XXXXXXXXXXXXX"
 wegaapikey="ХХХХХХХХХХХХ"
@@ -30,23 +30,23 @@ clouds=`jq -r ".clouds.all" /run/shm/owm`
 echo "$sdate;$temp;$hum;$pressure;$clouds" >> /var/log/sensors/owm.log
 curl `echo "http://127.0.0.1/wega-api/wegabox.php?db=owm&auth=$wegaapikey&temp=$temp&hum=$hum&pressure=$pressure&clouds=$clouds" | sed -e s/,/./g`
 </syntaxhighlight>
-* Делаем скрипт исполняемым и добавляем папку для логов
+- Делаем скрипт исполняемым и добавляем папку для логов
 
  chmod +x /usr/bin/owm-log
  mkdir /var/log/sensors
 
-* Проверяем
+- Проверяем
 
  owm-log
  cat /var/log/sensors/owm.log
 Если все прошло успешно в файл запишется текущее состояние погоды
 
-* Назначим выполнение загрузки погоды по расписанию
-* Откроем файл
+- Назначим выполнение загрузки погоды по расписанию
+- Откроем файл
 
  nano /etc/crontab
 
-* И добавим туда в конец строку
+- И добавим туда в конец строку
 
  */15 * * * * root owm-log
 Раз в 15 минут файл с погодой будет пополняться.

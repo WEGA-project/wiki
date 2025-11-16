@@ -1,11 +1,11 @@
 Пример развертываниея сервервара на базе <code>ubuntu-server</code>
 
-* Загрузить установочный образ:
-** Обычный метод: <nowiki>https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso</nowiki>
-** Через ТОРРЕНТ: <nowiki>https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso.torrent</nowiki>
-* Нарезаем на флешку или cd диск
-* При установке выбираем русский язык (это важно так как скрипты содержат русский текст)
-* При выборе компонентов добавляем <code>OpenSSH server</code> остальное установим потом уже из консоли <code>ssh</code>.
+- Загрузить установочный образ:
+  - Обычный метод: <nowiki>https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso</nowiki>
+  - Через ТОРРЕНТ: <nowiki>https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso.torrent</nowiki>
+- Нарезаем на флешку или cd диск
+- При установке выбираем русский язык (это важно так как скрипты содержат русский текст)
+- При выборе компонентов добавляем <code>OpenSSH server</code> остальное установим потом уже из консоли <code>ssh</code>.
 
 По завершению установки подключаемся к серверу по <code>ssh</code>, (например с помощью программы <code>putty</code>, если вы сидите в <code>windows</code>) и дальнейшую настроку делаем через нее.
 

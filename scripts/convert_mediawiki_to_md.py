@@ -28,7 +28,7 @@ DEFAULT_PAGES_FILE = ROOT / "all_pages.txt"
 INVALID_FILENAME_CHARS = '/<>:"|?*'
 
 
-_HEADING_PATTERN = re.compile(r"^(={2,6})\s*(.+?)\s*\1\s*$", re.MULTILINE)
+_HEADING_PATTERN = re.compile(r"^(={1,6})\s*(.+?)\s*\1\s*$", re.MULTILINE)
 _EXT_LINK_PATTERN = re.compile(r"\[(https?://[^\s\]]+)(?:\s+([^\]]+))?\]")
 _INT_LINK_PATTERN = re.compile(r"\[\[([^|\]]+)(?:\|([^\]]+))?\]\]")
 
@@ -48,7 +48,7 @@ def sanitize_title_to_filename(title: str) -> str:
 
 
 def convert_headings(text: str) -> str:
-    """Convert MediaWiki headings (== H2 ==) to Markdown (## H2)."""
+    """Convert MediaWiki headings (= H1 =, == H2 ==) to Markdown (# H1, ## H2)."""
 
     def _repl(match: re.Match[str]) -> str:
         equals = match.group(1)
@@ -371,6 +371,47 @@ def remove_category_links(text: str) -> str:
     return text
 
 
+def convert_lists(text: str) -> str:
+    """Convert MediaWiki lists (* and #) to Markdown lists."""
+    
+    lines = text.splitlines()
+    result = []
+    
+    for line in lines:
+        # Skip if line is already a markdown heading (starts with # followed by space)
+        if line.startswith('#') and len(line) > 1 and line[1] == ' ':
+            result.append(line)
+            continue
+        
+        # Check if line starts with list markers
+        if line.startswith('*'):
+            # Unordered list
+            count = 0
+            for char in line:
+                if char == '*':
+                    count += 1
+                else:
+                    break
+            content = line[count:].strip()
+            indent = '  ' * (count - 1)
+            result.append(f"{indent}- {content}")
+        elif line.startswith('#') and (len(line) < 2 or line[1] != ' '):
+            # Ordered list (not a markdown heading)
+            count = 0
+            for char in line:
+                if char == '#':
+                    count += 1
+                else:
+                    break
+            content = line[count:].strip()
+            indent = '  ' * (count - 1)
+            result.append(f"{indent}1. {content}")
+        else:
+            result.append(line)
+    
+    return '\n'.join(result)
+
+
 def convert_text(text: str) -> str:
     """Run all conversions on a single MediaWiki source string."""
 
@@ -378,6 +419,7 @@ def convert_text(text: str) -> str:
     text = convert_tables(text)
     text = convert_galleries(text)
     text = remove_category_links(text)
+    text = convert_lists(text)  # Before headings to avoid confusion with ##
     text = convert_headings(text)
     text = convert_emphasis(text)
     text = convert_external_links(text)

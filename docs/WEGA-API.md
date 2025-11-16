@@ -22,9 +22,9 @@
 
 где
 
-* <code>ip-address-server</code> это адрес сервера
-* <code>auth=adab637320e5c47624cdd15169276981</code> код доступа к <code>api</code> (должен быть задан в файле <code>/var/WEGA/wega-api/wegabox.php</code>)
-* <code>db=esp32wega</code> имя в базы данных для записи(для каждого модуля <code>ESP</code> должна быть своя база данных)
+- <code>ip-address-server</code> это адрес сервера
+- <code>auth=adab637320e5c47624cdd15169276981</code> код доступа к <code>api</code> (должен быть задан в файле <code>/var/WEGA/wega-api/wegabox.php</code>)
+- <code>db=esp32wega</code> имя в базы данных для записи(для каждого модуля <code>ESP</code> должна быть своя база данных)
 
 Это действие создаст базу даных с таблицей <code>sens</code> и внесет тестовый набор сеносоров как будто все они показывают значение единица.
 
