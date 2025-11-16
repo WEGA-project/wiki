@@ -65,7 +65,7 @@ Telegram: [активный канал](https://t.me/WEGA_SERVER/20742), [ста
 - На момент прошивки у вас уже должен быть развернут и настроен [WEGA-SERVER](WEGA-SERVER.md), и сгенерированы ключи доступа.
 - Установлена платформа [VSCODE](https://code.visualstudio.com/), и подключен проект из [репозитория](https://github.com/WEGA-project/wegabox)
 
-![Vscode1.mp4](assets/Vscode1.mp4)
+<video controls width="100%"><source src="assets/Vscode1.mp4" type="video/mp4">Your browser does not support the video tag.</video>
 
 [подробнее](Прошивка.md)
 

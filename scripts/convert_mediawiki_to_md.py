@@ -114,6 +114,12 @@ def convert_internal_links(text: str) -> str:
             if not alt_text:
                 alt_text = filename
 
+            # Check if it's a video file
+            video_extensions = ('.mp4', '.webm', '.ogg', '.mov', '.avi')
+            if any(filename.lower().endswith(ext) for ext in video_extensions):
+                # Use HTML5 video tag for videos
+                return f'<video controls width="100%"><source src="assets/{filename}" type="video/mp4">Your browser does not support the video tag.</video>'
+            
             # Use relative path - works with use_directory_urls: false
             return f"![{alt_text}](assets/{filename})"
 
@@ -848,6 +854,15 @@ def main(argv: list[str] | None = None) -> int:
             dst.write_text(md_text, encoding="utf-8")
             print(f"Converted remote page {title!r} -> {dst.relative_to(ROOT)}")
 
+        # Create index.md symlink to main page
+        index_path = DOCS_DIR / "index.md"
+        main_page = DOCS_DIR / "Заглавная_страница.md"
+        if main_page.exists():
+            if index_path.exists() or index_path.is_symlink():
+                index_path.unlink()
+            index_path.symlink_to("Заглавная_страница.md")
+            print(f"Created index.md -> Заглавная_страница.md")
+
         return 0
 
     # Local mode: use mediawiki/*.mediawiki as source
@@ -900,6 +915,15 @@ def main(argv: list[str] | None = None) -> int:
         src_rel = src.relative_to(ROOT) if src.is_relative_to(ROOT) else src
         dst_rel = dst.relative_to(ROOT) if dst.is_relative_to(ROOT) else dst
         print(f"Converted {src_rel} -> {dst_rel}")
+
+    # Create index.md symlink to main page
+    index_path = DOCS_DIR / "index.md"
+    main_page = DOCS_DIR / "Заглавная_страница.md"
+    if main_page.exists():
+        if index_path.exists() or index_path.is_symlink():
+            index_path.unlink()
+        index_path.symlink_to("Заглавная_страница.md")
+        print(f"Created index.md -> Заглавная_страница.md")
 
     return 0
 
