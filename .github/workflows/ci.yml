@@ -18,5 +18,5 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - run: python scripts/validate_docs.py
-      - run: pip install mkdocs-material mkdocs-glightbox
+      - run: pip install mkdocs-material mkdocs-glightbox mkdocs-awesome-pages-plugin mkdocs-img2fig-plugin
       - run: mkdocs gh-deploy --force

@@ -1,0 +1,1 @@
+Основная WIKI проекта тут: https://github.com/WEGA-project/wega-hpg/wiki

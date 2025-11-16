@@ -7,6 +7,12 @@ ENV/
 env.bak/
 venv.bak/
 
+# Temporary and backup folders
+.tmp/
+.old/
+__pycache__/
+*.pyc
+
 # General
 .DS_Store
 .AppleDouble

@@ -32,22 +32,31 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - tables
+  - def_list
+  - footnotes
 
 plugins:
   - search:
       lang: ru
   - glightbox:
-      touchNavigation: false
+      touchNavigation: true
       loop: false
       effect: zoom
-      width: 100%
-      height: auto
+      width: 90%
+      height: 80%
       zoomable: true
       draggable: true
-      skip_classes:
-        - custom-skip-class-name
-      auto_caption: false
+      auto_caption: true
       caption_position: bottom
+      background: rgba(0, 0, 0, 0.9)
+      shadow: true
+  - awesome-pages
+  - img2fig
 extra:
   social:
     - icon: fontawesome/brands/github
