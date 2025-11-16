@@ -394,6 +394,9 @@ def _build_markdown_table(header: list[str], rows: list[list[str]]) -> list[str]
     # Build markdown
     result = []
     
+    # Add blank line before table for proper markdown rendering
+    result.append("")
+    
     # Header
     result.append("| " + " | ".join(header) + " |")
     
@@ -403,6 +406,9 @@ def _build_markdown_table(header: list[str], rows: list[list[str]]) -> list[str]
     # Rows
     for row in normalized_rows:
         result.append("| " + " | ".join(row) + " |")
+    
+    # Add blank line after table
+    result.append("")
     
     return result
 
