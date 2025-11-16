@@ -114,7 +114,8 @@ def convert_internal_links(text: str) -> str:
             if not alt_text:
                 alt_text = filename
 
-            return f"![{alt_text}](assets/{filename})"
+            # Use absolute path from site root for images
+            return f"![{alt_text}](../assets/{filename})"
 
         # Normal internal page links
         page_name = target

@@ -3,4 +3,4 @@
 https://www.chipdip.ru/product/mcp602-i-p
 
 https://aliexpress.ru/item/4000014843256.html
-![мини](assets/MCP602-I-P.png)
+![мини](../assets/MCP602-I-P.png)

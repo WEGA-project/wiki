@@ -1,0 +1,30 @@
+/* Gallery styles */
+.gallery-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.gallery-compact img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Table improvements */
+table {
+  width: 100%;
+  margin: 20px 0;
+}
+
+table th {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+table td, table th {
+  padding: 8px 12px;
+}
