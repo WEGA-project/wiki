@@ -427,11 +427,13 @@ def convert_lists(text: str) -> str:
     lines = text.splitlines()
     result = []
     in_list = False
+    list_counters = {}  # Track counters for each depth level
     
     for i, line in enumerate(lines):
         # Skip if line is already a markdown heading (starts with # followed by space)
         if line.startswith('#') and len(line) > 1 and line[1] == ' ':
             in_list = False
+            list_counters = {}
             result.append(line)
             continue
         
@@ -445,33 +447,62 @@ def convert_lists(text: str) -> str:
             
             in_list = True
             
-            if line.startswith('*'):
-                # Unordered list
-                count = 0
-                for char in line:
-                    if char == '*':
-                        count += 1
-                    else:
-                        break
-                content = line[count:].strip()
-                indent = '  ' * (count - 1)
-                result.append(f"{indent}- {content}")
+            # Parse mixed lists like *# or *##
+            markers = []
+            idx = 0
+            while idx < len(line) and line[idx] in '*#':
+                markers.append(line[idx])
+                idx += 1
+            
+            content = line[idx:].strip()
+            
+            # For mixed lists like *#, treat as ordered list at same level
+            # Count only the actual nesting depth (not the container marker)
+            if len(markers) >= 2 and markers[0] == '*' and markers[1] == '#':
+                # *# is ordered list, depth is based on # count
+                hash_count = markers.count('#')
+                depth = hash_count - 1
+                indent = '  ' * depth
+                
+                # Increment counter for this depth
+                if depth not in list_counters:
+                    list_counters[depth] = 1
+                else:
+                    list_counters[depth] += 1
+                
+                # Reset deeper level counters
+                keys_to_remove = [k for k in list_counters if k > depth]
+                for k in keys_to_remove:
+                    del list_counters[k]
+                
+                result.append(f"{indent}{list_counters[depth]}. {content}")
             else:
-                # Ordered list (not a markdown heading)
-                count = 0
-                for char in line:
-                    if char == '#':
-                        count += 1
+                # Normal list - depth based on total markers
+                depth = len(markers) - 1
+                indent = '  ' * depth
+                
+                # Use the last marker to determine list type
+                if markers[-1] == '*':
+                    result.append(f"{indent}- {content}")
+                else:
+                    # Increment counter for this depth
+                    if depth not in list_counters:
+                        list_counters[depth] = 1
                     else:
-                        break
-                content = line[count:].strip()
-                indent = '  ' * (count - 1)
-                result.append(f"{indent}1. {content}")
+                        list_counters[depth] += 1
+                    
+                    # Reset deeper level counters
+                    keys_to_remove = [k for k in list_counters if k > depth]
+                    for k in keys_to_remove:
+                        del list_counters[k]
+                    
+                    result.append(f"{indent}{list_counters[depth]}. {content}")
         else:
             # Add blank line after list if next line is not empty and not a list
             if in_list and line.strip():
                 result.append('')
             in_list = False
+            list_counters = {}
             result.append(line)
     
     return '\n'.join(result)
