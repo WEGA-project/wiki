@@ -65,10 +65,3 @@ extra:
       link: https://t.me/WEGA_SERVER
 extra_css:
   - stylesheets/extra.css
-nav:
-  - WEGA-PROJECT: index.md
-  - WEGA-SERVER: wega-server.md
-  - WEGABOX: wega-box.md
-  - WEGA-DOSER: wega-doser.md
-  - WEGA-MIXER: wega-mixer.md
-  - WEGA-HPG: wega-hpg.md
