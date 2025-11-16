@@ -14,8 +14,11 @@
  nano /usr/bin/owm-log
 
 - Добавим
+
 <syntaxhighlight lang="bash" line="1">
+
 1. !/bin/bash
+
 sity="Khabarovsk,ru"
 apikey="XXXXXXXXXXXXX"
 wegaapikey="ХХХХХХХХХХХХ"
@@ -30,6 +33,7 @@ clouds=`jq -r ".clouds.all" /run/shm/owm`
 echo "$sdate;$temp;$hum;$pressure;$clouds" >> /var/log/sensors/owm.log
 curl `echo "http://127.0.0.1/wega-api/wegabox.php?db=owm&auth=$wegaapikey&temp=$temp&hum=$hum&pressure=$pressure&clouds=$clouds" | sed -e s/,/./g`
 </syntaxhighlight>
+
 - Делаем скрипт исполняемым и добавляем папку для логов
 
  chmod +x /usr/bin/owm-log

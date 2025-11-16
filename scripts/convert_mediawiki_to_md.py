@@ -376,37 +376,52 @@ def convert_lists(text: str) -> str:
     
     lines = text.splitlines()
     result = []
+    in_list = False
     
-    for line in lines:
+    for i, line in enumerate(lines):
         # Skip if line is already a markdown heading (starts with # followed by space)
         if line.startswith('#') and len(line) > 1 and line[1] == ' ':
+            in_list = False
             result.append(line)
             continue
         
         # Check if line starts with list markers
-        if line.startswith('*'):
-            # Unordered list
-            count = 0
-            for char in line:
-                if char == '*':
-                    count += 1
-                else:
-                    break
-            content = line[count:].strip()
-            indent = '  ' * (count - 1)
-            result.append(f"{indent}- {content}")
-        elif line.startswith('#') and (len(line) < 2 or line[1] != ' '):
-            # Ordered list (not a markdown heading)
-            count = 0
-            for char in line:
-                if char == '#':
-                    count += 1
-                else:
-                    break
-            content = line[count:].strip()
-            indent = '  ' * (count - 1)
-            result.append(f"{indent}1. {content}")
+        is_list_item = line.startswith('*') or (line.startswith('#') and (len(line) < 2 or line[1] != ' '))
+        
+        if is_list_item:
+            # Add blank line before list if previous line was not empty and not a list
+            if not in_list and result and result[-1].strip():
+                result.append('')
+            
+            in_list = True
+            
+            if line.startswith('*'):
+                # Unordered list
+                count = 0
+                for char in line:
+                    if char == '*':
+                        count += 1
+                    else:
+                        break
+                content = line[count:].strip()
+                indent = '  ' * (count - 1)
+                result.append(f"{indent}- {content}")
+            else:
+                # Ordered list (not a markdown heading)
+                count = 0
+                for char in line:
+                    if char == '#':
+                        count += 1
+                    else:
+                        break
+                content = line[count:].strip()
+                indent = '  ' * (count - 1)
+                result.append(f"{indent}1. {content}")
         else:
+            # Add blank line after list if next line is not empty and not a list
+            if in_list and line.strip():
+                result.append('')
+            in_list = False
             result.append(line)
     
     return '\n'.join(result)
