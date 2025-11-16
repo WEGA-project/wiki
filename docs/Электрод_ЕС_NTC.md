@@ -42,21 +42,34 @@
 - Выжидаем так сутки, проверяем на КЗ и если все в порядке собираем корпус
 - Припаиваем Jack 3.5
 
-<div class="gallery-compact">
-  <img src="assets/Ес000.png" alt="Ес000.png" />
-  <img src="assets/Ec0.png" alt="Ec0.png" />
-  <img src="assets/Ес00.png" alt="Ес00.png" />
-  <img src="assets/Ес12.png" alt="Ес12.png" />
-  <img src="assets/Ecpin.png" alt="Ecpin.png" />
-  <img src="assets/Ес17.png" alt="Ес17.png" />
-  <img src="assets/Ес13.png" alt="Ес13.png" />
-  <img src="assets/Ес14.png" alt="Ес14.png" />
-  <img src="assets/Ес16.png" alt="Ес16.png" />
-  <img src="assets/Ес15.png" alt="Ес15.png" />
-  <img src="assets/Ec1.png" alt="Ec1.png" />
-  <img src="assets/Ec11.png" alt="Ec11.png" />
-  <img src="assets/Ec2.png" alt="Ec2.png" />
-  <img src="assets/Ec3.png" alt="Ec3.png" />
-  <img src="assets/Photo 2023-04-27 13-46-02.jpg" alt="Photo 2023-04-27 13-46-02.jpg" />
-  <img src="assets/Photo 2023-04-27 13-46-10.jpg" alt="Photo 2023-04-27 13-46-10.jpg" />
-</div>
+![Ес000.png](assets/Ес000.png)
+
+![Ec0.png](assets/Ec0.png)
+
+![Ес00.png](assets/Ес00.png)
+
+![Ес12.png](assets/Ес12.png)
+
+![Ecpin.png](assets/Ecpin.png)
+
+![Ес17.png](assets/Ес17.png)
+
+![Ес13.png](assets/Ес13.png)
+
+![Ес14.png](assets/Ес14.png)
+
+![Ес16.png](assets/Ес16.png)
+
+![Ес15.png](assets/Ес15.png)
+
+![Ec1.png](assets/Ec1.png)
+
+![Ec11.png](assets/Ec11.png)
+
+![Ec2.png](assets/Ec2.png)
+
+![Ec3.png](assets/Ec3.png)
+
+![Photo 2023-04-27 13-46-02.jpg](assets/Photo 2023-04-27 13-46-02.jpg)
+
+![Photo 2023-04-27 13-46-10.jpg](assets/Photo 2023-04-27 13-46-10.jpg)

@@ -20,8 +20,8 @@
 ![Параметры калибровки NTC](assets/Ntc1.png)
 
 Далее наблюдаем за графиками по мере нагрева или остывания воды.
-<div class="gallery-compact">
-  <img src="assets/Photo 2021-08-07 15-27-47.jpg" alt="Photo 2021-08-07 15-27-47.jpg" />
-  <img src="assets/Photo 2021-08-09 13-52-04.jpg" alt="Photo 2021-08-09 13-52-04.jpg" />
-  <img src="assets/Photo 2023-05-16 16-46-11.jpg" alt="Photo 2023-05-16 16-46-11.jpg" />
-</div>
+![Photo 2021-08-07 15-27-47.jpg](assets/Photo 2021-08-07 15-27-47.jpg)
+
+![Photo 2021-08-09 13-52-04.jpg](assets/Photo 2021-08-09 13-52-04.jpg)
+
+![Photo 2023-05-16 16-46-11.jpg](assets/Photo 2023-05-16 16-46-11.jpg)

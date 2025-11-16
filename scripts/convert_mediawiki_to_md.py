@@ -136,7 +136,7 @@ def convert_internal_links(text: str) -> str:
 
 
 def _build_gallery_html(lines: Iterable[str]) -> str:
-    """Build HTML gallery from lines with 'Файл:...' entries.
+    """Build gallery as markdown images - glightbox will handle the gallery display.
 
     Each line is expected to be in one of forms:
       - 'Файл:img.png'
@@ -149,11 +149,20 @@ def _build_gallery_html(lines: Iterable[str]) -> str:
         line = raw.strip()
         if not line:
             continue
-        if not (line.startswith("Файл:") or line.startswith("File:") or line.startswith("файл:")):
+        
+        # Check if line starts with file marker (case insensitive)
+        lower_line = line.lower()
+        if not (lower_line.startswith("файл:") or lower_line.startswith("file:")):
             continue
-        rest = line.split(":", 1)[1]
+        
+        # Find the colon position
+        colon_pos = line.find(":")
+        if colon_pos == -1:
+            continue
+            
+        rest = line[colon_pos + 1:]
         parts = [p.strip() for p in rest.split("|")]
-        if not parts:
+        if not parts or not parts[0]:
             continue
         filename = parts[0]
         caption = parts[-1] if len(parts) > 1 else ""
@@ -163,16 +172,17 @@ def _build_gallery_html(lines: Iterable[str]) -> str:
         # Fallback: just join original lines if we couldn't parse anything useful
         return "\n".join(lines)
 
-    out: list[str] = ["<div class=\"gallery-compact\">"]
+    # Convert to markdown images - glightbox will automatically create gallery
+    out: list[str] = []
     for filename, caption in images:
         alt = caption or filename
-        out.append(f"  <img src=\"assets/{filename}\" alt=\"{alt}\" />")
-    out.append("</div>")
-    return "\n".join(out)
+        out.append(f"![{alt}](assets/{filename})")
+    
+    return "\n\n".join(out)
 
 
 def convert_galleries(text: str) -> str:
-    """Convert <gallery>...</gallery> blocks to HTML gallery-compact blocks."""
+    """Convert <gallery>...</gallery> blocks to markdown images."""
 
     lines = text.splitlines()
     out_lines: list[str] = []
@@ -183,10 +193,32 @@ def convert_galleries(text: str) -> str:
         stripped = line.strip()
 
         if not in_gallery:
-            if stripped.startswith("<gallery"):
-                # Start of gallery; attributes are ignored, items will follow on next lines
+            # Check if <gallery> tag is on this line
+            if "<gallery" in line:
+                # Split line at <gallery> tag
+                before_gallery = line.split("<gallery", 1)[0]
+                if before_gallery.strip():
+                    out_lines.append(before_gallery.rstrip())
+                
                 in_gallery = True
                 gallery_lines = []
+                
+                # Check if there's content after <gallery> on same line
+                gallery_start = line.find(">", line.find("<gallery"))
+                if gallery_start != -1:
+                    after_tag = line[gallery_start + 1:]
+                    if "</gallery>" in after_tag:
+                        # Gallery opens and closes on same line
+                        gallery_content, after_gallery = after_tag.split("</gallery>", 1)
+                        if gallery_content.strip():
+                            gallery_lines.append(gallery_content)
+                        out_lines.append(_build_gallery_html(gallery_lines))
+                        in_gallery = False
+                        gallery_lines = []
+                        if after_gallery.strip():
+                            out_lines.append(after_gallery.lstrip())
+                    elif after_tag.strip():
+                        gallery_lines.append(after_tag)
                 continue
             out_lines.append(line)
             continue

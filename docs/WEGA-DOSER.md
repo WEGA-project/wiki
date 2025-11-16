@@ -22,11 +22,14 @@
 
 1. записываем полученные мл в настройки дозера, сохраняем и проверяем указав меньшее количество в налив - например вы откалибровали на 35 мл, поставить налить 15 и посмотрите совпадут ли цифры - должны совпасть
 
-<div class="gallery-compact">
-  <img src="assets/Doser settings.png" alt="Doser settings.png" />
-  <img src="assets/Image.png" alt="Image.png" />
-  <img src="assets/Docer.png" alt="Docer.png" />
-  <img src="assets/Doser podkl.jpg" alt="Doser podkl.jpg" />
-  <img src="assets/Doser podkl2.jpg" alt="Doser podkl2.jpg" />
-  <img src="assets/Doser 4.jpg" alt="Doser 4.jpg" />
-</div>
+![Doser settings.png](assets/Doser settings.png)
+
+![Image.png](assets/Image.png)
+
+![Docer.png](assets/Docer.png)
+
+![Doser podkl.jpg](assets/Doser podkl.jpg)
+
+![Doser podkl2.jpg](assets/Doser podkl2.jpg)
+
+![Doser 4.jpg](assets/Doser 4.jpg)

@@ -1,8 +1,8 @@
-<div class="gallery-compact">
-  <img src="assets/Photo 2023-04-23 02-48-34 (2).jpg" alt="Photo 2023-04-23 02-48-34 (2).jpg" />
-  <img src="assets/Photo 2023-04-23 02-48-34.jpg" alt="Photo 2023-04-23 02-48-34.jpg" />
-  <img src="assets/Photo 2023-04-23 02-48-27.jpg" alt="Photo 2023-04-23 02-48-27.jpg" />
-</div>
+![Photo 2023-04-23 02-48-34 (2).jpg](assets/Photo 2023-04-23 02-48-34 (2).jpg)
+
+![Photo 2023-04-23 02-48-34.jpg](assets/Photo 2023-04-23 02-48-34.jpg)
+
+![Photo 2023-04-23 02-48-27.jpg](assets/Photo 2023-04-23 02-48-27.jpg)
 **На плате <big>SW2</big> это кнопка BOOT <big>SW1</big> это кнопка RESET**
 
 ## Прошивка
@@ -16,10 +16,11 @@
 ![usb-ttl ali-express](assets/Usb-ttl.png)
 
 
-Подключение происходит GND=>GND, TX=>RX, RX=>TX<gallery>
-Файл:Usb-ttl3.jpg
-Файл:Usb-ttl-2.jpg
-</gallery>Далее выбираем нужный порт в программе которой прошиваем, нажимаем прошить, зажимаем SW2 нажимаем SW1 и отпускаем, SW2 держим пока не пойдет процесс прошивки - на скриншоте это момент когда видим следующие строки
+Подключение происходит GND=>GND, TX=>RX, RX=>TX
+![Usb-ttl3.jpg](assets/Usb-ttl3.jpg)
+
+![Usb-ttl-2.jpg](assets/Usb-ttl-2.jpg)
+Далее выбираем нужный порт в программе которой прошиваем, нажимаем прошить, зажимаем SW2 нажимаем SW1 и отпускаем, SW2 держим пока не пойдет процесс прошивки - на скриншоте это момент когда видим следующие строки
 
 Serial port /dev/cu.usbserial-0001
 
